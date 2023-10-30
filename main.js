@@ -45,3 +45,24 @@ function storeUserInfo() {
     document.getElementById("village").textContent = userInfo.village;
 }
 
+
+
+const modeToggle = document.getElementById('mode-toggle');
+const container = document.querySelector('.body');
+const infoCard = document.getElementById('info-card');
+
+modeToggle.addEventListener('click', () => {
+  container.classList.toggle('dark-mode');
+  infoCard.classList.toggle('dark-mode');
+  // Toggle between light and dark mode by changing CSS variables
+  if (container.classList.contains('dark-mode')) {
+    document.body.style.setProperty('--background', 'var(--background-dark)');
+    document.body.style.setProperty('--text', 'var(--text-dark)');
+    modeToggle.innerText='LightMode'
+  } else {
+    document.body.style.setProperty('--background', 'var(--background-light)');
+    document.body.style.setProperty('--text', 'var(--text-light)');
+    modeToggle.innerText='DarkMode'
+  }
+});
+
